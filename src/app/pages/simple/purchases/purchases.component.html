@@ -1,0 +1,98 @@
+<div class="sales-container">
+  <h2 class="text-center">PURCHASES</h2>
+  <div class="sales-form-container app-shadow">
+    <form
+      (ngSubmit)="addPurchase()"
+      class="page-form"
+      [formGroup]="purchaseItem"
+    >
+      <div class="form-control">
+        <label
+          for="product"
+          class="input input-bordered flex items-center gap-2"
+        >
+          product:
+          <input
+            list="products"
+            id="product"
+            class="grow"
+            formControlName="product"
+          />
+          <datalist id="products">
+            @for (item of products(); track $index) {
+            <option [value]="item.product">{{ item.product }}</option>
+            }
+          </datalist>
+        </label>
+      </div>
+
+      <div class="form-control">
+        <label for="price" class="input input-bordered flex items-center gap-2">
+          price:
+          <input
+            type="number"
+            id="price"
+            class="grow"
+            formControlName="price"
+          />
+        </label>
+      </div>
+      <div class="form-control">
+        <label
+          for="quantity"
+          class="input input-bordered flex items-center gap-2"
+        >
+          quantity:
+          <input
+            type="number"
+            id="quantity"
+            class="grow"
+            formControlName="quantity"
+          />
+        </label>
+      </div>
+      <div class="form-control">
+        <button (click)="addPurchase()" class="btn btn-primary">
+          ADD PURCHASE
+        </button>
+      </div>
+    </form>
+  </div>
+  @if (purchases.length>0) {
+  <div class="sales-made-container app-shadow">
+    <button
+      (click)="submitPurchase()"
+      class="btn btn-secondary sale-btn"
+      (click)="submitPurchase()"
+    >
+      SUBMIT PURCHASE
+    </button>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>sn</th>
+          <th>item</th>
+          <th>quantity</th>
+          <th>purchase-price</th>
+          <th>subtotal</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (purchase of purchases; track $index) {
+        <tr>
+          <td>{{ $index + 1 }}</td>
+          <td>{{ purchase.product }}</td>
+          <td>{{ purchase.quantity }}</td>
+          <td>{{ purchase.price | currency : "TZS" }}</td>
+          <td>{{ purchase.price * purchase.quantity | currency : "TZS" }}</td>
+        </tr>
+        }
+        <tr>
+          <td colspan="4">total</td>
+          <td colspan="1">{{ getTotalPurchases() | currency : "TZS" }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  }
+</div>

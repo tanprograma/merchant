@@ -1,0 +1,23 @@
+<div class="login-form centered">
+    <form (ngSubmit)="login()" [formGroup]="loginCredentials" >
+        <div class="login-header-container centered">
+            <h2 class="login-header">MACHIMU-TIMBER LOGIN FORM</h2>
+        </div>
+        <div class="form-control">
+            <label for="username" class="input iput-bordered flex items-center gap-2">
+                username:
+                <input id="username" class="grow" type="text" formControlName="username" placeholder="machimu.mabula@gmail.com">
+            </label>
+        </div>
+        <div class="form-control">
+            <label class="input input-bordered flex items-center gap-2" for="password">
+                password:
+                <input id="password" class="grow"  type="password" formControlName="password">
+            </label>
+        </div>
+        <div class="form-control">
+            <button class="btn btn-primary" type="submit">Login</button>
+        </div>
+    </form>
+</div>
+

@@ -1,0 +1,28 @@
+<table class="table">
+  <caption class="caption-top sticky top-0">
+    LIST OF PRODUCTS
+    <button (click)="refresh()" class="btn btn-secondary btn-xs ml-1">
+      refresh
+    </button>
+  </caption>
+  <thead>
+    <tr>
+      <th>sn</th>
+      <th>product</th>
+      <th>quantity</th>
+      <th>sell-price</th>
+      <th>inventory value</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (item of inventories(); track $index) {
+    <tr>
+      <td>{{ $index + 1 }}</td>
+      <td>{{ item.product }}</td>
+      <td>{{ item.quantity }}</td>
+      <td>{{ item.price | currency : "TZS" }}</td>
+      <td>{{ item.quantity * item.price | currency : "TZS" }}</td>
+    </tr>
+    }
+  </tbody>
+</table>

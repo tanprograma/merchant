@@ -1,0 +1,19 @@
+<div class="container">
+    <button class="button">add product</button>
+    <table class="table">
+        <thead><tr>
+            <th>sn</th>
+            <th>item</th>
+            <th>price</th>
+        </tr></thead>
+        <tbody>
+            @for (item of products; track $index) {
+                <tr>
+                    <td>{{$index+1}}</td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.price}}</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,38 @@
+<div class="simple">
+  <div class="simple-nav-container flex items-center gap-4">
+    <ul class="simple-nav flex items-center gap-2">
+      <li>
+        <a routerLink="/app/sales">sales</a>
+      </li>
+      <li>
+        <a routerLink="/app/purchases">purchases</a>
+      </li>
+      <li>
+        <a routerLink="/app/add-product">products</a>
+      </li>
+      <li>
+        <a routerLink="/app/statistics/products">statistics</a>
+      </li>
+    </ul>
+    <div class="flex items-center flex-1">
+      <h2 class="flex-1 text-right text-lg text-blue-200 bg-zinc-500">
+        {{ outlet?.store }}
+      </h2>
+    </div>
+  </div>
+  <div class="simple-content-container relative">
+    @if (loading()) {
+    <div
+      class="loading-container absolute z-10 flex items-center justify-center gap-2"
+    >
+      <span class="loading loading-dots loading-xs"></span>
+      <span class="loading loading-dots loading-sm"></span>
+      <span class="loading loading-dots loading-md"></span>
+      <span class="loading loading-dots loading-lg"></span>
+    </div>
+    }
+    <div class="content relative">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

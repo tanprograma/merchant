@@ -1,0 +1,20 @@
+<div class="stores-container app-shadow">
+    <form (ngSubmit)="selectStore()" class="page-form" [formGroup]="storeForm">
+        <div class="form-control"><label for="store" class="input input-bordered flex items-center gap-2">
+            store: <input list="stores" id="store" class="grow" formControlName="store">
+            <datalist id="stores">
+                @for (item of stores; track $index) {
+                    <option [value]="item.store">{{item.store}}</option>
+                }
+                
+            
+            </datalist>
+        </label></div>
+        
+        
+        <div class="form-control">
+            <button class="btn btn-primary">SELECT STORE</button>
+        </div>
+    </form>
+
+</div>

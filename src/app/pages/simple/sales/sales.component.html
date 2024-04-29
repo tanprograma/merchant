@@ -1,0 +1,78 @@
+<div class="sales-container">
+  <h2 class="text-center top-0">SALES</h2>
+  <div class="sales-form-container app-shadow">
+    <form (ngSubmit)="addSale()" class="page-form" [formGroup]="saleItem">
+      <div class="form-control">
+        <label
+          for="product"
+          class="input input-bordered flex items-center gap-2"
+        >
+          product:
+          <input
+            list="products"
+            id="product"
+            class="grow"
+            formControlName="product"
+            autocomplete="off"
+          />
+          <datalist id="products">
+            @for (item of products(); track $index) {
+            <option [value]="item.product">{{ item.product }}</option>
+            }
+          </datalist>
+        </label>
+      </div>
+
+      <div class="form-control">
+        <label
+          for="quantity"
+          class="input input-bordered flex items-center gap-2"
+        >
+          quantity:
+          <input
+            type="number"
+            id="quantity"
+            class="grow"
+            formControlName="quantity"
+          />
+        </label>
+      </div>
+      <div class="form-control">
+        <button class="btn btn-primary">ADD SALE</button>
+      </div>
+    </form>
+  </div>
+  @if (sales.length>0) {
+  <div class="sales-made-container app-shadow">
+    <button (click)="submitSales()" class="btn btn-secondary sale-btn">
+      SUBMIT SALES
+    </button>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>sn</th>
+          <th>item</th>
+          <th>quantity</th>
+          <th>price(&commat;1)</th>
+          <th>amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (sale of sales; track $index) {
+        <tr>
+          <td>{{ $index + 1 }}</td>
+          <td>{{ sale.product }}</td>
+          <td>{{ sale.quantity }}</td>
+          <td>{{ sale.price | currency : "TZS" }}</td>
+          <td>{{ sale.price * sale.quantity | currency : "TZS" }}</td>
+        </tr>
+        }
+        <tr>
+          <td colspan="4">total</td>
+          <td colspan="1">{{ getTotalSales() | currency : "TZS" }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  }
+</div>

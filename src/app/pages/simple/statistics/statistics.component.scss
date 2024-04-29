@@ -1,0 +1,7 @@
+.statistics {
+  height: 100%;
+  overflow-y: scroll;
+}
+.statistics::-webkit-scrollbar {
+  display: none;
+}

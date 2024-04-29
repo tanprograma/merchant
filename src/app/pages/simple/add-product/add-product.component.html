@@ -1,0 +1,61 @@
+<div class="sales-container">
+  <h2 class="text-center">PRODUCTS</h2>
+  <div class="sales-form-container app-shadow">
+    <form (ngSubmit)="addProduct()" class="page-form" [formGroup]="productItem">
+      <div class="form-control">
+        <label
+          for="product"
+          class="input input-bordered flex items-center gap-2"
+        >
+          product:
+          <input
+            type="text"
+            id="product"
+            class="grow"
+            formControlName="product"
+          />
+        </label>
+      </div>
+      <div class="form-control">
+        <label for="price" class="input input-bordered flex items-center gap-2">
+          price:
+          <input
+            type="number"
+            id="price"
+            class="grow"
+            formControlName="price"
+          />
+        </label>
+      </div>
+
+      <div class="form-control">
+        <button class="btn btn-primary">ADD PRODUCT</button>
+      </div>
+    </form>
+  </div>
+  @if (products.length>0) {
+  <div class="sales-made-container app-shadow">
+    <button class="btn btn-secondary sale-btn" (click)="submitProducts()">
+      SUBMIT PRODUCTS
+    </button>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>sn</th>
+          <th>item</th>
+          <th>price</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (item of products; track $index) {
+        <tr>
+          <td>{{ $index + 1 }}</td>
+          <td>{{ item.product }}</td>
+          <td>{{ item.price }}</td>
+        </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+  }
+</div>

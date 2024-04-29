@@ -1,0 +1,17 @@
+<div class="navbar bg-base-100">
+  <div class="navbar-start">
+    <a class="btn btn-ghost text-xl text-black">STATISTICS</a>
+  </div>
+  <div class="navbar-center lg:flex bg-slate-400">
+    <ul class="menu menu-horizontal px-1">
+      <li>
+        <a [routerLink]="'/app/statistics/products'">products</a>
+      </li>
+      <li><a [routerLink]="'/app/statistics/sales'">sales</a></li>
+      <li><a [routerLink]="'/app/statistics/purchases'">purchases</a></li>
+    </ul>
+  </div>
+  <div class="navbar-end">
+    <a class="btn" [routerLink]="'/app/sales'">home</a>
+  </div>
+</div>

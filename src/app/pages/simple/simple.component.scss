@@ -1,0 +1,51 @@
+.simple {
+  height: 100%;
+}
+.simple-nav-container {
+  height: 10%;
+}
+ul {
+  list-style: none;
+  height: 100%;
+}
+
+a {
+  text-decoration: none;
+  display: inline-block;
+  min-width: 100px;
+  text-align: center;
+  background-color: rgb(205, 227, 235);
+}
+a:hover {
+  background-color: blue;
+  color: white;
+}
+.bg {
+  background-color: blue;
+  color: white;
+}
+.simple-content-container {
+  height: 90%;
+  overflow-y: scroll;
+}
+.simple-content-container::-webkit-scrollbar {
+  display: none;
+}
+
+.simple-nav-container,
+.simple-content-container {
+  width: 85vw;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+  background-color: white;
+}
+
+.content {
+  height: 100%;
+}
+
+.loading-container {
+  height: 100%;
+  width: 100%;
+}
