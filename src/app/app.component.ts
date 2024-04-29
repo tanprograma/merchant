@@ -13,6 +13,6 @@ export class AppComponent {
   title = 'probonoliquors';
 
   logo = 'PROBONO LIQUORS LLC';
-  outlet = this.appService.appStore().outlet;
-  constructor(private appService: AppService) {}
+
+  constructor() {}
 }

@@ -16,6 +16,7 @@ export class ProductsComponent {
   inventories = this.appService.inventories;
   getInventory() {
     console.log('getting inventory');
+    console.log({ api: `${this.api}/inventories` });
     this.appService.getInventory(`${this.api}/inventories`);
   }
   constructor(private appService: AppService) {}
